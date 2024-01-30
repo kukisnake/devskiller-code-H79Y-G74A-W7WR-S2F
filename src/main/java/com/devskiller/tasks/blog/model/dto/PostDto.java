@@ -12,8 +12,14 @@ public class PostDto {
 	// Constructors
 	// Getters and setters
 
-	public PostDto(String id, String title, LocalDateTime creationDate) {
+	public PostDto(String id, String title, String content, LocalDateTime creationDate) {
 		this.id = id;
+		this.title = title;
+		this.content = content;
+		this.creationDate = creationDate;
+	}
+
+	public PostDto(String title, String content, LocalDateTime creationDate) {
 		this.title = title;
 		this.content = content;
 		this.creationDate = creationDate;

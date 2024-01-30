@@ -25,6 +25,15 @@ public class Post {
 		this.creationDate = creationDate;
 	}
 
+	public Post() {
+	}
+
+	public Post(String title, String content, LocalDateTime creationDate) {
+		this.title = title;
+		this.content = content;
+		this.creationDate = creationDate;
+	}
+
 	// Getters and setters
 	// Constructors
 	// Other methods as needed

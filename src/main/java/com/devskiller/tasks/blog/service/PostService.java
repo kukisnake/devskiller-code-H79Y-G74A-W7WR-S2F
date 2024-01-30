@@ -17,7 +17,7 @@ public class PostService {
 
 	public PostDto getPost(String id) {
 		return postRepository.findById(id)
-			.map(post -> new PostDto(post.getTitle(), post.getContent(), post.getCreationDate()))
+			.map(post -> new PostDto(post.getId(), post.getTitle(), post.getContent(), post.getCreationDate()))
 			.orElse(null);
 	}
 }

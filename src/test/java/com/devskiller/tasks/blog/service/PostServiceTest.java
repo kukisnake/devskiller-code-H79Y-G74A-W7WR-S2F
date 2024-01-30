@@ -32,12 +32,12 @@ public class PostServiceTest {
 			creationDate);
 		post = postRepository.save(post);
 
-		PostDto postDto = postService.getPost(post.getId());
+		PostDto postDto = postService.getPost(post.id());
 
 		assertNotNull("Post shouldn't be null", postDto);
-		assertEquals("Test content", postDto.getContent());
-		assertEquals("Test title", postDto.getTitle());
-		assertEquals(creationDate, postDto.getCreationDate());
+		assertEquals("Test content", postDto.content());
+		assertEquals("Test title", postDto.title());
+		assertEquals(creationDate, postDto.creationDate());
 	}
 
 	@Test

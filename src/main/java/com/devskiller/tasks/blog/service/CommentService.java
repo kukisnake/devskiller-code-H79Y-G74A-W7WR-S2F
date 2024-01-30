@@ -36,13 +36,11 @@ public class CommentService {
 		Post post = postRepository.findById(postId)
 			.orElseThrow(() -> new IllegalArgumentException("No post found with id: " + postId));
 
-		Comment comment = new Comment();
-		comment.setPost(post);
-		comment.setAuthor(newCommentDto.getAuthor());
-		comment.setContent(newCommentDto.getContent());
+		Comment comment = new Comment(null, post, newCommentDto.author(), newCommentDto.content(), null);
 		Comment savedComment = commentRepository.save(comment);
-		return savedComment.getId();
+		return savedComment.id();
 	}
+
 
 	public Comment getCommentById(String commentId) {
 		return commentRepository.findById(commentId)
@@ -50,6 +48,6 @@ public class CommentService {
 	}
 
 	private CommentDto mapToCommentDto(Comment comment) {
-		return new CommentDto(comment.getId(), comment.getContent(), comment.getAuthor(), comment.getCreationDate());
+		return new CommentDto(comment.id(), comment.content(), comment.author(), comment.creationDate());
 	}
 }

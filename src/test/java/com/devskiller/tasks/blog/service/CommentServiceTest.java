@@ -28,7 +28,7 @@ public class CommentServiceTest {
 		Post post = createTestPost();
 
 		NewCommentDto comment = new NewCommentDto("Author", "Content");
-		String commentId = commentService.addComment(post.getId(), comment);
+		String commentId = commentService.addComment(post.id(), comment);
 
 		assertThat("Comment id shouldn't be null", commentId, notNullValue());
 	}
@@ -47,12 +47,12 @@ public class CommentServiceTest {
 		Post post = createTestPost();
 
 		NewCommentDto comment = new NewCommentDto("Author", "Content");
-		commentService.addComment(post.getId(), comment);
+		commentService.addComment(post.id(), comment);
 
-		List<CommentDto> comments = commentService.getCommentsForPost(post.getId());
+		List<CommentDto> comments = commentService.getCommentsForPost(post.id());
 
 		assertThat("There should be one comment", comments, hasSize(1));
-		assertThat(comments.get(0).getAuthor(), equalTo("Author"));
-		assertThat(comments.get(0).getContent(), equalTo("Content"));
+		assertThat(comments.get(0).author(), equalTo("Author"));
+		assertThat(comments.get(0).comment(), equalTo("Content"));
 	}
 }

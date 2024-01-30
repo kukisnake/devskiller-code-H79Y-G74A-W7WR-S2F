@@ -43,6 +43,6 @@ public class PostController {
 	public CommentDto addCommentToPost(@PathVariable String id, @RequestBody NewCommentDto commentRequest) {
 		String commentId = commentService.addComment(id, commentRequest);
 		Comment comment = commentService.getCommentById(commentId);
-		return new CommentDto(comment.getId(), comment.getContent(), comment.getAuthor(), comment.getCreationDate());
+		return new CommentDto(comment.id(), comment.content(), comment.author(), comment.creationDate());
 	}
 }

@@ -1,10 +1,8 @@
 package com.devskiller.tasks.blog.model;
 
 import jakarta.persistence.*;
-
 import java.time.LocalDateTime;
 
-@Entity
 public record Comment(
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

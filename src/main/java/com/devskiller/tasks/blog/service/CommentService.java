@@ -36,7 +36,7 @@ public class CommentService {
 		Post post = postRepository.findById(postId)
 			.orElseThrow(() -> new IllegalArgumentException("No post found with id: " + postId));
 
-		Comment comment = new Comment(null, post, newCommentDto.author(), newCommentDto.content(), null);
+		Comment comment = new Comment(post, newCommentDto.author(), newCommentDto.content());
 		Comment savedComment = commentRepository.save(comment);
 		return savedComment.id();
 	}

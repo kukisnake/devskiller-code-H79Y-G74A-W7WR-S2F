@@ -13,5 +13,12 @@ public record Comment(
 	String content,
 	LocalDateTime creationDate
 ) {
-	// If needed, you can add additional methods here
+	// Default constructor
+	public Comment() {
+		this(null, null, null, null, null);
+	}
+
+	public Comment(Post post, String author, String content) {
+		this(null, post, author, content, null); // Constructor without id and creationDate
+	}
 }

@@ -16,19 +16,15 @@ public class Comment {
 
 	private String author;
 	private String content;
-	private LocalDateTime createdAt;
-
-	// Getters and setters
-	// Constructors
-	// Other methods as needed
+	private LocalDateTime creationDate;
 
 
-	public Comment(String id, Post post, String author, String content, LocalDateTime createdAt) {
+	public Comment(String id, Post post, String author, String content, LocalDateTime creationDate) {
 		this.id = id;
 		this.post = post;
 		this.author = author;
 		this.content = content;
-		this.createdAt = createdAt;
+		this.creationDate = creationDate;
 	}
 
 	public Comment() {
@@ -67,11 +63,11 @@ public class Comment {
 		this.content = content;
 	}
 
-	public LocalDateTime getCreatedAt() {
-		return createdAt;
+	public LocalDateTime getCreationDate() {
+		return creationDate;
 	}
 
-	public void setCreatedAt(LocalDateTime createdAt) {
-		this.createdAt = createdAt;
+	public void setCreationDate(LocalDateTime creationDate) {
+		this.creationDate = creationDate;
 	}
 }

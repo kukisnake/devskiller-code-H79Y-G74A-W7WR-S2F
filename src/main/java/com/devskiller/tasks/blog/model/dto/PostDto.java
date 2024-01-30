@@ -9,8 +9,6 @@ public class PostDto {
 	private String content;
 	private LocalDateTime creationDate;
 
-	// Constructors
-	// Getters and setters
 
 	public PostDto(String id, String title, String content, LocalDateTime creationDate) {
 		this.id = id;

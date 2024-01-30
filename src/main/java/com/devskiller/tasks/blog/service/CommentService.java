@@ -26,7 +26,7 @@ public class CommentService {
 	}
 
 	public List<CommentDto> getCommentsForPost(String postId) {
-		List<Comment> comments = commentRepository.findByPostIdOrderByCreatedAtDesc(postId);
+		List<Comment> comments = commentRepository.findByPostIdOrderByCreationDateDesc(postId);
 		return comments.stream()
 			.map(this::mapToCommentDto)
 			.collect(Collectors.toList());
@@ -50,6 +50,6 @@ public class CommentService {
 	}
 
 	private CommentDto mapToCommentDto(Comment comment) {
-		return new CommentDto(comment.getId(), comment.getContent(), comment.getAuthor(), comment.getCreatedAt());
+		return new CommentDto(comment.getId(), comment.getContent(), comment.getAuthor(), comment.getCreationDate());
 	}
 }

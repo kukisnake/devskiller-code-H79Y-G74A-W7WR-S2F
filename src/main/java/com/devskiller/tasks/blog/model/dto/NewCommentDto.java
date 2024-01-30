@@ -5,8 +5,6 @@ public class NewCommentDto {
 	private String author;
 	private String content;
 
-	// Constructors
-	// Getters and setters
 
 	public NewCommentDto(String author, String content) {
 		this.author = author;

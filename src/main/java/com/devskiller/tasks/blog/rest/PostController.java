@@ -42,7 +42,7 @@ public class PostController {
 	@ResponseStatus(HttpStatus.CREATED)
 	public CommentDto addCommentToPost(@PathVariable String id, @RequestBody NewCommentDto commentRequest) {
 		String commentId = commentService.addComment(id, commentRequest);
-		Comment comment = commentService.getCommentById(commentId); // Assuming a method to get comment by ID
-		return new CommentDto(comment.getId(), comment.getContent(), comment.getAuthor(), comment.getCreatedAt());
+		Comment comment = commentService.getCommentById(commentId);
+		return new CommentDto(comment.getId(), comment.getContent(), comment.getAuthor(), comment.getCreationDate());
 	}
 }

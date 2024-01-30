@@ -34,10 +34,6 @@ public class Post {
 		this.creationDate = creationDate;
 	}
 
-	// Getters and setters
-	// Constructors
-	// Other methods as needed
-
 	public String getId() {
 		return id;
 	}

@@ -7,16 +7,14 @@ public class CommentDto {
 	private String id;
 	private String author;
 	private String content;
-	private LocalDateTime createdAt;
+	private LocalDateTime creationDate;
 
-	// Constructors
-	// Getters and setters
 
-	public CommentDto(String id, String content, String author, LocalDateTime createdAt) {
+	public CommentDto(String id, String content, String author, LocalDateTime creationDate) {
 		this.id = id;
 		this.content = content;
 		this.author = author;
-		this.createdAt = createdAt;
+		this.creationDate = creationDate;
 	}
 
 	public String getAuthor() {
@@ -35,11 +33,11 @@ public class CommentDto {
 		this.content = content;
 	}
 
-	public LocalDateTime getCreatedAt() {
-		return createdAt;
+	public LocalDateTime getCreationDate() {
+		return creationDate;
 	}
 
-	public void setCreatedAt(LocalDateTime createdAt) {
-		this.createdAt = createdAt;
+	public void setCreationDate(LocalDateTime creationDate) {
+		this.creationDate = creationDate;
 	}
 }

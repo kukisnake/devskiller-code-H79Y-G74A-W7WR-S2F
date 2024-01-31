@@ -2,9 +2,11 @@ package com.devskiller.tasks.blog.rest;
 
 import com.devskiller.tasks.blog.model.Comment;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.http.HttpResponse;
 import java.util.List;
 
 import com.devskiller.tasks.blog.model.dto.CommentDto;
@@ -13,7 +15,6 @@ import com.devskiller.tasks.blog.model.dto.PostDto;
 import com.devskiller.tasks.blog.service.CommentService;
 import com.devskiller.tasks.blog.service.PostService;
 
-@Controller
 @RestController
 @RequestMapping("/posts")
 public class PostController {
@@ -40,9 +41,8 @@ public class PostController {
 
 	@PostMapping("/{id}/comments")
 	@ResponseStatus(HttpStatus.CREATED)
-	public CommentDto addCommentToPost(@PathVariable String id, @RequestBody NewCommentDto commentRequest) {
-		String commentId = commentService.addComment(id, commentRequest);
-		Comment comment = commentService.getCommentById(commentId);
-		return new CommentDto(comment.id(), comment.content(), comment.author(), comment.creationDate());
+	public ResponseEntity<Object> addCommentToPost(@PathVariable String id, @RequestBody NewCommentDto commentRequest) {
+		commentService.addComment(id, commentRequest);
+		return ResponseEntity.status(201).build();
 	}
 }

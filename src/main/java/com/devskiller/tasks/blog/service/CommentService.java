@@ -41,12 +41,6 @@ public class CommentService {
 		return savedComment.id();
 	}
 
-
-	public Comment getCommentById(String commentId) {
-		return commentRepository.findById(commentId)
-			.orElseThrow(() -> new IllegalArgumentException("No comment found with id: " + commentId));
-	}
-
 	private CommentDto mapToCommentDto(Comment comment) {
 		return new CommentDto(comment.id(), comment.content(), comment.author(), comment.creationDate());
 	}
